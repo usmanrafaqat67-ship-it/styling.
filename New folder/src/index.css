@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --color-cyber-blue: #00f2ff;
+  --color-cyber-purple: #bc13fe;
+  --color-cyber-dark: #050505;
+  --color-glass-dark: rgba(15, 15, 25, 0.7);
+}
+
+@layer base {
+  body {
+    @apply bg-cyber-dark text-[#e2e8f0] font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass-dark backdrop-blur-[12px] border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)];
+  }
+
+  .neon-border-blue {
+    @apply border-cyber-blue/30 shadow-[0_0_15px_rgba(0,242,255,0.1)];
+  }
+
+  .neon-border-purple {
+    @apply border-cyber-purple/30 shadow-[0_0_15px_rgba(188,19,254,0.1)];
+  }
+
+  .cyber-button {
+    @apply relative overflow-hidden px-6 py-3 rounded-lg font-display font-medium uppercase tracking-wider transition-all duration-300;
+  }
+
+  .cyber-button-primary {
+    @apply bg-gradient-to-br from-cyber-blue to-cyber-purple text-white shadow-[0_0_20px_rgba(0,242,255,0.3)] hover:scale-105 active:scale-95;
+  }
+
+  .cyber-button-outline {
+    @apply border border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20;
+  }
+
+  .neon-text-blue {
+    @apply text-cyber-blue;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+  }
+
+  .neon-text-purple {
+    @apply text-cyber-purple;
+    text-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+  }
+}
+
+@utility neon-glow-blue {
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+@utility neon-glow-purple {
+  box-shadow: 0 0 15px rgba(188, 19, 254, 0.4);
+}
+
+@utility cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes scan {
+  0% { top: 0% }
+  100% { top: 100% }
+}
+
+.scan-line {
+  @apply absolute left-0 w-full h-[2px] z-10;
+  background: linear-gradient(90deg, transparent, #00f2ff, transparent);
+  animation: scan 4s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-cyber-dark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 rounded-full hover:bg-cyber-blue transition-colors;
+}

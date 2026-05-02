@@ -1,0 +1,6 @@
+{
+  "name": "Usman AI Studio Pro",
+  "description": "An intelligent AI system for automatic prompt enhancement, image generation, and smart face-protected editing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["AI Image Generation", "Smart Image Editing", "Prompt Engineering"]
+}
